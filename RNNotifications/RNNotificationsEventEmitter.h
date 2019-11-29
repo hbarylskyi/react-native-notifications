@@ -8,7 +8,7 @@ static NSString* const RNNotificationOpened             = @"notificationOpened";
 static NSString* const RNPushKitNotificationReceived    = @"pushKitNotificationReceived";
 
 
-@interface RNEventEmitter : RCTEventEmitter <RCTBridgeModule>
+@interface RNNotificationsEventEmitter : RCTEventEmitter <RCTBridgeModule>
 
 + (void)sendEvent:(NSString *)event body:(NSDictionary *)body;
 

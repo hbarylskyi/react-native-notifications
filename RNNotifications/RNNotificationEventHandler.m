@@ -1,5 +1,5 @@
 #import "RNNotificationEventHandler.h"
-#import "RNEventEmitter.h"
+#import "RNNotificationsEventEmitter.h"
 #import "RNNotificationUtils.h"
 #import "RCTConvert+RNNotifications.h"
 #import "RNNotificationParser.h"
@@ -16,21 +16,21 @@
 
 - (void)didRegisterForRemoteNotificationsWithDeviceToken:(id)deviceToken {
     NSString *tokenRepresentation = [deviceToken isKindOfClass:[NSString class]] ? deviceToken : [RNNotificationUtils deviceTokenToString:deviceToken];
-    [RNEventEmitter sendEvent:RNRegistered body:@{@"deviceToken": tokenRepresentation}];
+    [RNNotificationsEventEmitter sendEvent:RNRegistered body:@{@"deviceToken": tokenRepresentation}];
 }
 
 - (void)didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
-    [RNEventEmitter sendEvent:RNRegistrationFailed body:@{@"code": [NSNumber numberWithInteger:error.code], @"domain": error.domain, @"localizedDescription": error.localizedDescription}];
+    [RNNotificationsEventEmitter sendEvent:RNRegistrationFailed body:@{@"code": [NSNumber numberWithInteger:error.code], @"domain": error.domain, @"localizedDescription": error.localizedDescription}];
 }
 
 - (void)didReceiveForegroundNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler {
     [_store setPresentationCompletionHandler:completionHandler withCompletionKey:notification.request.identifier];
-    [RNEventEmitter sendEvent:RNNotificationReceivedForeground body:[RNNotificationParser parseNotification:notification]];
+    [RNNotificationsEventEmitter sendEvent:RNNotificationReceivedForeground body:[RNNotificationParser parseNotification:notification]];
 }
 
 - (void)didReceiveNotificationResponse:(UNNotificationResponse *)response completionHandler:(void (^)(void))completionHandler {
     [_store setActionCompletionHandler:completionHandler withCompletionKey:response.notification.request.identifier];
-    [RNEventEmitter sendEvent:RNNotificationOpened body:[RNNotificationParser parseNotificationResponse:response]];
+    [RNNotificationsEventEmitter sendEvent:RNNotificationOpened body:[RNNotificationParser parseNotificationResponse:response]];
 }
 
 @end

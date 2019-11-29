@@ -13,7 +13,7 @@
 		50002A8022E8885A008F6742 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 50002A7F22E8885A008F6742 /* libOCMock.a */; };
 		50002AC822E9D5EA008F6742 /* RNNotificationsStoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 50002AC722E9D5EA008F6742 /* RNNotificationsStoreTests.m */; };
 		50002ACA22E9DB8A008F6742 /* RNNotificationEventHandlerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 50002AC922E9DB8A008F6742 /* RNNotificationEventHandlerTests.m */; };
-		50351F8F22CD782F000713B3 /* RNEventEmitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 50351F8E22CD782F000713B3 /* RNEventEmitter.m */; };
+		50351F8F22CD782F000713B3 /* RNNotificationsEventEmitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 50351F8E22CD782F000713B3 /* RNNotificationsEventEmitter.m */; };
 		50351F9222CD7DF4000713B3 /* RNBridgeModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 50351F9122CD7DF4000713B3 /* RNBridgeModule.m */; };
 		50351F9522CD7FF1000713B3 /* RCTConvert+RNNotifications.m in Sources */ = {isa = PBXBuildFile; fileRef = 50351F9422CD7FF1000713B3 /* RCTConvert+RNNotifications.m */; };
 		50351F9822CD8604000713B3 /* RNCommandsHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 50351F9722CD8604000713B3 /* RNCommandsHandler.m */; };
@@ -21,7 +21,7 @@
 		507DCCF522CE3EBD005D4E0B /* RNNotifications.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D8A2F7561CB57F28002CC8F5 /* RNNotifications.h */; };
 		507DCCF722CE3EF7005D4E0B /* RNBridgeModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 50351F9022CD7DF4000713B3 /* RNBridgeModule.h */; };
 		507DCCF922CE3F04005D4E0B /* RNNotifications.h in Headers */ = {isa = PBXBuildFile; fileRef = D8A2F7561CB57F28002CC8F5 /* RNNotifications.h */; };
-		507DCCFA22CE3F04005D4E0B /* RNEventEmitter.h in Headers */ = {isa = PBXBuildFile; fileRef = 50351F8D22CD782F000713B3 /* RNEventEmitter.h */; };
+		507DCCFA22CE3F04005D4E0B /* RNNotificationsEventEmitter.h in Headers */ = {isa = PBXBuildFile; fileRef = 50351F8D22CD782F000713B3 /* RNNotificationsEventEmitter.h */; };
 		507DCCFB22CE3F04005D4E0B /* RNCommandsHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 50351F9622CD8604000713B3 /* RNCommandsHandler.h */; };
 		507DCCFC22CE3F04005D4E0B /* RCTConvert+RNNotifications.h in Headers */ = {isa = PBXBuildFile; fileRef = 50351F9322CD7FF1000713B3 /* RCTConvert+RNNotifications.h */; };
 		50858B7822E87767008272FE /* libyoga.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 50858B7722E87767008272FE /* libyoga.a */; };
@@ -90,8 +90,8 @@
 		50002A7F22E8885A008F6742 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOCMock.a; sourceTree = "<group>"; };
 		50002AC722E9D5EA008F6742 /* RNNotificationsStoreTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNNotificationsStoreTests.m; sourceTree = "<group>"; };
 		50002AC922E9DB8A008F6742 /* RNNotificationEventHandlerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNNotificationEventHandlerTests.m; sourceTree = "<group>"; };
-		50351F8D22CD782F000713B3 /* RNEventEmitter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNEventEmitter.h; sourceTree = "<group>"; };
-		50351F8E22CD782F000713B3 /* RNEventEmitter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNEventEmitter.m; sourceTree = "<group>"; };
+		50351F8D22CD782F000713B3 /* RNNotificationsEventEmitter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNNotificationsEventEmitter.h; sourceTree = "<group>"; };
+		50351F8E22CD782F000713B3 /* RNNotificationsEventEmitter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNNotificationsEventEmitter.m; sourceTree = "<group>"; };
 		50351F9022CD7DF4000713B3 /* RNBridgeModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNBridgeModule.h; sourceTree = "<group>"; };
 		50351F9122CD7DF4000713B3 /* RNBridgeModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNBridgeModule.m; sourceTree = "<group>"; };
 		50351F9322CD7FF1000713B3 /* RCTConvert+RNNotifications.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RCTConvert+RNNotifications.h"; sourceTree = "<group>"; };
@@ -305,8 +305,8 @@
 			children = (
 				50351F9022CD7DF4000713B3 /* RNBridgeModule.h */,
 				50351F9122CD7DF4000713B3 /* RNBridgeModule.m */,
-				50351F8D22CD782F000713B3 /* RNEventEmitter.h */,
-				50351F8E22CD782F000713B3 /* RNEventEmitter.m */,
+				50351F8D22CD782F000713B3 /* RNNotificationsEventEmitter.h */,
+				50351F8E22CD782F000713B3 /* RNNotificationsEventEmitter.m */,
 			);
 			name = Bridge;
 			sourceTree = "<group>";
@@ -347,7 +347,7 @@
 				507DCCF922CE3F04005D4E0B /* RNNotifications.h in Headers */,
 				508CE82222D1372E00357815 /* RNNotificationUtils.h in Headers */,
 				50FED76E22D3EBA800DDD516 /* RNNotificationParser.h in Headers */,
-				507DCCFA22CE3F04005D4E0B /* RNEventEmitter.h in Headers */,
+				507DCCFA22CE3F04005D4E0B /* RNNotificationsEventEmitter.h in Headers */,
 				507DCCFB22CE3F04005D4E0B /* RNCommandsHandler.h in Headers */,
 				507DCCFC22CE3F04005D4E0B /* RCTConvert+RNNotifications.h in Headers */,
 				507DCCF722CE3EF7005D4E0B /* RNBridgeModule.h in Headers */,
@@ -459,7 +459,7 @@
 			files = (
 				50351F9822CD8604000713B3 /* RNCommandsHandler.m in Sources */,
 				D8A2F7551CB57F1A002CC8F5 /* RNNotifications.m in Sources */,
-				50351F8F22CD782F000713B3 /* RNEventEmitter.m in Sources */,
+				50351F8F22CD782F000713B3 /* RNNotificationsEventEmitter.m in Sources */,
 				3000AE4023857F1D00DD26E9 /* RNNotificationCenterMulticast.m in Sources */,
 				508CE81A22D130B900357815 /* RNPushKitEventListener.m in Sources */,
 				50351F9222CD7DF4000713B3 /* RNBridgeModule.m in Sources */,

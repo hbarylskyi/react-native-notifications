@@ -1,14 +1,14 @@
 #import "RNPushKitEventHandler.h"
-#import "RNEventEmitter.h"
+#import "RNNotificationsEventEmitter.h"
 
 @implementation RNPushKitEventHandler
 
 - (void)registeredWithToken:(NSString *)token {
-    [RNEventEmitter sendEvent:RNPushKitRegistered body:@{@"pushKitToken": token}];
+    [RNNotificationsEventEmitter sendEvent:RNPushKitRegistered body:@{@"pushKitToken": token}];
 }
 
 - (void)didReceiveIncomingPushWithPayload:(NSDictionary *)payload {
-    [RNEventEmitter sendEvent:RNPushKitNotificationReceived body:payload];
+    [RNNotificationsEventEmitter sendEvent:RNPushKitNotificationReceived body:payload];
 }
 
 @end
